@@ -3,17 +3,19 @@ on run arg
 	#do shell script "echo " & item 1 of arg
 	#log "entered " & item 1 of arg
 	
+	#no arguments, use default headphones
+	set headphones to "Beoplay E8"
+
 	if (count of arg) > 0 then
 		if (item 1 of arg contains "j") then
 			set headphones to "Jaybird X3"
 		else if (item 1 of arg contains "b") then
-			set headphones to "BRAGI HP 93"
+			#set headphones to "Beoplay E8"
 		else if (item 1 of arg contains "s") then
 			set headphones to "BeatsSolo2"
 		end if
 	else
-		#if no arguments passed in, use a default
-		set headphones to "BRAGI HP 93"
+
 	end if
 	
 	#log headphones
@@ -51,9 +53,9 @@ on run arg
 		end tell
 	end tell
 	#return focus to last active application
-	tell application frontmostApplicationName
-		activate
-	end tell
+	#tell application frontmostApplicationName
+	#	activate
+	#end tell
 	
 	return "no menu items found"
 end run
